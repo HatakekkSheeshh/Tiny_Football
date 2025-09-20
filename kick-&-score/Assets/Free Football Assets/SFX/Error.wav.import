@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://c2mvj6fs0gadt"
+path="res://.godot/imported/Error.wav-a70b115dea56a40411c286a78d2eaf8b.sample"
+
+[deps]
+
+source_file="res://Assets/Free Football Assets/SFX/Error.wav"
+dest_files=["res://.godot/imported/Error.wav-a70b115dea56a40411c286a78d2eaf8b.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2

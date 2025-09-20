@@ -1,0 +1,24 @@
+[remap]
+
+importer="wav"
+type="AudioStreamWAV"
+uid="uid://dnbu717qoltft"
+path="res://.godot/imported/Death.wav-06e8fa347c0ac536fec489d9a61e569e.sample"
+
+[deps]
+
+source_file="res://Assets/Free Football Assets/SFX/Death.wav"
+dest_files=["res://.godot/imported/Death.wav-06e8fa347c0ac536fec489d9a61e569e.sample"]
+
+[params]
+
+force/8_bit=false
+force/mono=false
+force/max_rate=false
+force/max_rate_hz=44100
+edit/trim=false
+edit/normalize=false
+edit/loop_mode=0
+edit/loop_begin=0
+edit/loop_end=-1
+compress/mode=2
