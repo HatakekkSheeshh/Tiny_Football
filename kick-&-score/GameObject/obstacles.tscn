@@ -1,0 +1,102 @@
+[gd_scene load_steps=13 format=3 uid="uid://dwwgy6ogu1231"]
+
+[ext_resource type="Texture2D" uid="uid://ke01mo068dqt" path="res://Assets/Free Football Assets/Obstacles/FrancePlayer/idle.png" id="1_ndyk5"]
+[ext_resource type="Texture2D" uid="uid://s3kgh1eba0xx" path="res://Assets/Free Football Assets/Obstacles/FrancePlayer/walk.png" id="2_beihw"]
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_p8wab"]
+atlas = ExtResource("1_ndyk5")
+region = Rect2(0, 0, 13, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_eiihj"]
+atlas = ExtResource("1_ndyk5")
+region = Rect2(13, 0, 13, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_5sarm"]
+atlas = ExtResource("1_ndyk5")
+region = Rect2(26, 0, 13, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_owhth"]
+atlas = ExtResource("1_ndyk5")
+region = Rect2(39, 0, 13, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_pgbye"]
+atlas = ExtResource("2_beihw")
+region = Rect2(0, 0, 15, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_je01m"]
+atlas = ExtResource("2_beihw")
+region = Rect2(15, 0, 15, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_v6kuq"]
+atlas = ExtResource("2_beihw")
+region = Rect2(30, 0, 15, 20)
+
+[sub_resource type="AtlasTexture" id="AtlasTexture_wc2xn"]
+atlas = ExtResource("2_beihw")
+region = Rect2(45, 0, 15, 20)
+
+[sub_resource type="SpriteFrames" id="SpriteFrames_lubh5"]
+animations = [{
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8wab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_p8wab")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiihj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_eiihj")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sarm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_5sarm")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owhth")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_owhth")
+}],
+"loop": true,
+"name": &"Idle",
+"speed": 15.0
+}, {
+"frames": [{
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_pgbye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je01m")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_v6kuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc2xn")
+}],
+"loop": true,
+"name": &"Running",
+"speed": 7.5
+}]
+
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndyk5"]
+radius = 6.0
+height = 18.0
+
+[node name="Obstacles" type="Node2D"]
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
+sprite_frames = SubResource("SpriteFrames_lubh5")
+animation = &"Running"
+frame_progress = 0.6458208
+
+[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+visible = false
+shape = SubResource("CapsuleShape2D_ndyk5")
