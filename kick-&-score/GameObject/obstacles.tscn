@@ -101,6 +101,7 @@ radius = 6.0
 height = 18.0
 
 [node name="Obstacles" type="Node2D"]
+scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lubh5")
@@ -110,5 +111,5 @@ frame_progress = 0.4145422
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
 shape = SubResource("CapsuleShape2D_ndyk5")
+disabled = true

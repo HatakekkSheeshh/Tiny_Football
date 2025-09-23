@@ -1,4 +1,4 @@
-[gd_scene load_steps=70 format=4 uid="uid://bhnvfig8rs04g"]
+[gd_scene load_steps=71 format=4 uid="uid://bhnvfig8rs04g"]
 
 [ext_resource type="Texture2D" uid="uid://3pbqpcpffpyb" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass.png" id="1_4qq7b"]
 [ext_resource type="Texture2D" uid="uid://dw8hjd457s4r0" path="res://Assets/kenney_sports-pack/Tilesheet/groundBeige_blue.png" id="2_75hpu"]
@@ -8,6 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccbdo8t46rja5" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass_mown.png" id="6_symy8"]
 [ext_resource type="Texture2D" uid="uid://cxg03wlueqrri" path="res://Assets/kenney_sports-pack/Tilesheet/groundIce_red.png" id="7_75hpu"]
 [ext_resource type="Texture2D" uid="uid://cgj5gbv0wd38y" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (1) Sheet.png" id="8_bi1hd"]
+[ext_resource type="Script" uid="uid://bry32xyvtdlsd" path="res://Scenes/a_1.gd" id="9_bhngk"]
 [ext_resource type="Texture2D" uid="uid://j6a0bkvgo35d" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (8) Sheet.png" id="9_ehoth"]
 [ext_resource type="Texture2D" uid="uid://bih8qeul4cxc7" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (2) Sheet.png" id="10_nkvct"]
 [ext_resource type="Texture2D" uid="uid://c7xd6v3cybegm" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (10) Sheet.png" id="10_vyly5"]
@@ -17896,72 +17897,82 @@ position = Vector2(-6, 0)
 tile_map_data = PackedByteArray("AAAAAPv/BAAEAAAAAAAAAPz/BAAEAAAAAAAAAP3/BAALAAAAAAAAAP7/BAAYAAAAAAABAPv/BAAEAAAAAAABAPz/BAAEAAAAAAABAP3/BAAMAAAAAAABAP7/BAAZAAAAAAACAPv/BAAEAAAAAAACAPz/BAAEAAAAAAACAP3/BAANAAAAAAACAP7/BAAYAAAAAAADAPv/BAAEAAAAAAADAPz/BAAEAAAAAAADAP3/BAANAAAAAAADAP7/BAAZAAAAAAAEAPv/BAAEAAAAAAAEAPz/BAAEAAAAAAAEAP3/BAALAAAAAAAEAP7/BAAZAAAAAAAFAPv/BAAEAAAAAAAFAPz/BAAEAAAAAAAFAP3/BAAMAAAAAAAFAP7/BAAaAAAAAAAGAPv/BAAEAAAAAAAGAPz/BAAEAAAAAAAGAP3/BAANAAAAAAAGAP7/BAAbAAAAAAAHAPv/BAAEAAAAAAAHAPz/BAAEAAAAAAAHAP3/BAAOAAAAAAAHAP7/BAAcAAAAAAAIAPv/BAAEAAAAAAAIAPz/BAAEAAAAAAAIAP3/BAAPAAAAAAAIAP7/BAAbAAAAAAAJAPv/BAAEAAAAAAAJAPz/BAAEAAAAAAAJAP3/BAAQAAAAAAAJAP7/BAAcAAAAAAAKAPv/BAAEAAAAAAAKAPz/BAAEAAAAAAAKAP3/BAARAAAAAAAKAP7/BAAdAAAAAAALAPv/BAAEAAAAAAALAPz/BAAEAAAAAAALAP3/BAAMAAAAAAALAP7/BAAeAAAAAAAMAPv/BAAEAAAAAAAMAPz/BAAEAAAAAAAMAP3/BAANAAAAAAAMAP7/BAAfAAAAAAANAPv/BAAEAAAAAAANAPz/BAAEAAAAAAANAP3/BAAOAAAAAAANAP7/BAAgAAAAAAAOAPv/BAAEAAAAAAAOAPz/BAAEAAAAAAAOAP3/BAAPAAAAAAAOAP7/BAAhAAAAAAAPAPv/BAAEAAAAAAAPAPz/BAAEAAAAAAAPAP3/BAAQAAAAAAAPAP7/BAAiAAAAAAAQAPv/BAAEAAAAAAAQAPz/BAAEAAAAAAAQAP3/BAALAAAAAAAQAP7/BAAjAAAAAAARAPv/BAAEAAAAAAARAPz/BAAEAAAAAAARAP3/BAALAAAAAAARAP7/BAAkAAAAAAASAPv/BAAEAAAAAAASAPz/BAAEAAAAAAASAP3/BAAMAAAAAAASAP7/BAAlAAAAAAATAPv/BAAEAAAAAAATAPz/BAAEAAAAAAATAP3/BAANAAAAAAATAP7/BAAlAAAAAAAUAPv/BAACAAAAAAAUAPz/BAACAAAAAAAUAP3/BAATAAAAAAAUAP7/BAAkAAAAAAAVAPv/BAACAAAAAAAVAPz/BAACAAAAAAAVAP3/BAAUAAAAAAAVAP7/BAAjAAAAAAD9//v/BAACAAAAAAD9//z/BAACAAAAAAD9//3/BAATAAAAAAD+//v/BAACAAAAAAD+//z/BAACAAAAAAD+//3/BAATAAAAAAD///v/BAACAAAAAAD///z/BAACAAAAAAD///3/BAATAAAAAAD8//v/BAACAAAAAAD8//z/BAACAAAAAAD8//3/BAATAAAAAAAWAPv/BAACAAAAAAAWAPz/BAACAAAAAAAWAP3/BAATAAAAAAAXAPv/BAACAAAAAAAXAPz/BAACAAAAAAAXAP3/BAATAAAAAAAYAPv/BAACAAAAAAAYAPz/BAACAAAAAAAYAP3/BAAUAAAAAAAZAPv/BAACAAAAAAAZAPz/BAACAAAAAAAZAP3/BAAVAAAAAAAaAPv/BAAGAAAAAAAaAPz/BAAGAAAAAAAaAP3/BAAWAAAAAAAWAP7/BAAkAAAAAAAXAP7/BAAlAAAAAAAYAP7/BAAlAAAAAAAZAP7/BAAlAAAAAAAaAP7/BAAmAAAAAAD8//7/BAAZAAAAAAD9//7/BAAYAAAAAAD+//7/BAAZAAAAAAD///7/BAAXAAAAAAD6//7/BAAXAAAAAAD7//7/BAAYAAAAAAD6//v/BAABAAAAAAD6//z/BAABAAAAAAD6//3/BAAHAAAAAAD7//v/BAACAAAAAAD7//z/BAACAAAAAAD7//3/BAAIAAAAAAA=")
 tile_set = SubResource("TileSet_wsu2k")
 
-[node name="Audience1" type="Node2D" parent="."]
-position = Vector2(76, -1)
+[node name="Node2D" type="Node2D" parent="."]
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience1"]
+[node name="A1" type="Node2D" parent="Node2D"]
+position = Vector2(76, -1)
+script = ExtResource("9_bhngk")
+
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/A1"]
 position = Vector2(2, -63)
 sprite_frames = SubResource("SpriteFrames_ehoth")
-frame_progress = 0.110607766
+frame_progress = 0.56368196
 
-[node name="Audience7" type="Node2D" parent="."]
-position = Vector2(123, -9)
+[node name="A2" type="Node2D" parent="Node2D"]
+position = Vector2(119, -9)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience7"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/A2"]
 position = Vector2(2, -63)
 sprite_frames = SubResource("SpriteFrames_kqfkx")
 frame_progress = 0.5358569
 
-[node name="Audience8" type="Node2D" parent="."]
+[node name="A3" type="Node2D" parent="Node2D"]
 position = Vector2(39, -18)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience8"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/A3"]
 position = Vector2(2, -63)
 sprite_frames = SubResource("SpriteFrames_f168p")
 frame_progress = 0.18162645
 
-[node name="Audience2" type="Node2D" parent="."]
+[node name="A4" type="Node2D" parent="Node2D"]
 position = Vector2(97, -26)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience2"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/A4"]
 position = Vector2(2, -63)
 sprite_frames = SubResource("SpriteFrames_njqfi")
 frame_progress = 0.98450714
 
-[node name="Audience3" type="Node2D" parent="."]
+[node name="B1" type="Node2D" parent="Node2D"]
 position = Vector2(198, -1)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience3"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/B1"]
 position = Vector2(2, -63)
 sprite_frames = SubResource("SpriteFrames_p7s8c")
 frame_progress = 0.39218587
 
-[node name="Audience4" type="Node2D" parent="."]
+[node name="B2" type="Node2D" parent="Node2D"]
 position = Vector2(154, -11)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience4"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/B2"]
 position = Vector2(84, -62)
 sprite_frames = SubResource("SpriteFrames_0yelx")
 frame_progress = 0.59108824
 
-[node name="Audience5" type="Node2D" parent="."]
+[node name="B3" type="Node2D" parent="Node2D"]
 position = Vector2(263, -18)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience5"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/B3"]
 position = Vector2(2, -63)
 sprite_frames = SubResource("SpriteFrames_3e32w")
 frame_progress = 0.29971427
 
-[node name="Audience6" type="Node2D" parent="."]
+[node name="B4" type="Node2D" parent="Node2D"]
 position = Vector2(111, -24)
+script = ExtResource("9_bhngk")
 
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Audience6"]
+[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="Node2D/B4"]
 position = Vector2(188, -40)
 sprite_frames = SubResource("SpriteFrames_qsrhp")
 frame_progress = 0.3926261
 
-[node name="Camera2D" type="Camera2D" parent="Audience6"]
-position = Vector2(47, 63)
+[node name="Camera2D" type="Camera2D" parent="."]
+position = Vector2(158, 39)
 scale = Vector2(2.2904494, 0.3199991)
 zoom = Vector2(2, 2.25)
 position_smoothing_enabled = true
