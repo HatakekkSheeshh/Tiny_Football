@@ -25,4 +25,4 @@ func _physics_process(_delta: float) -> void:
 	velocity = input_velocity
 
 	# Move the player using move_and_slide()
-	move_and_slide()
+	move_and_slide()  # No arguments needed in Godot 4
