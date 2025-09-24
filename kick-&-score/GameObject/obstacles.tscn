@@ -71,17 +71,29 @@ animations = [{
 "texture": SubResource("AtlasTexture_pgbye")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_pgbye")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_je01m")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_je01m")
 }, {
 "duration": 1.0,
 "texture": SubResource("AtlasTexture_v6kuq")
 }, {
 "duration": 1.0,
+"texture": SubResource("AtlasTexture_v6kuq")
+}, {
+"duration": 1.0,
+"texture": SubResource("AtlasTexture_wc2xn")
+}, {
+"duration": 1.0,
 "texture": SubResource("AtlasTexture_wc2xn")
 }],
 "loop": true,
 "name": &"Running",
-"speed": 7.5
+"speed": 15.0
 }]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndyk5"]
@@ -89,14 +101,15 @@ radius = 6.0
 height = 18.0
 
 [node name="Obstacles" type="Node2D"]
+scale = Vector2(2, 2)
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="."]
 sprite_frames = SubResource("SpriteFrames_lubh5")
-animation = &"Running"
-frame_progress = 0.6458208
+animation = &"Idle"
+frame_progress = 0.4145422
 
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-visible = false
 shape = SubResource("CapsuleShape2D_ndyk5")
+disabled = true
