@@ -38,6 +38,8 @@ animations = [{
 shape = SubResource("CircleShape2D_6q6ci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
+position = Vector2(-0.34355164, -0.005944252)
+scale = Vector2(-1.0729387, 0.99933946)
 sprite_frames = SubResource("SpriteFrames_glfvn")
 animation = &"Rolling"
-frame_progress = 0.4284681
+frame_progress = 0.0033377637
