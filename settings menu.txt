@@ -1,0 +1,12 @@
+settings menu:
+bgm/sfx slider
+mute button
+config
+
+pause menu:
+back to game
+settings
+quit
+mute button
+
+hotkey for hitbox(F3), mute(F1)
