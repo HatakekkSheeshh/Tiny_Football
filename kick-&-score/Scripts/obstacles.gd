@@ -1,31 +1,70 @@
 extends CharacterBody2D
 
-# Movement speed of the player
-@export var speed: float = 200.0
+const SPEED = 50.0
+var current_dir = "none"
 
 func _ready() -> void:
-	pass
+	$AnimatedSprite2D.play("idle")
 
-func _physics_process(_delta: float) -> void:
-	# Reset velocity
-	var input_velocity = Vector2.ZERO
+func _physics_process(delta: float) -> void:
+	player_movement(delta)
+	
+func player_movement(delta: float):
+	if Input.is_action_pressed("ui_right"):
+		current_dir = "right"
+		play_anim(1)
+		velocity.x = SPEED
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_left"):
+		current_dir = "left"
+		play_anim(1)
+		velocity.x = - SPEED
+		velocity.y = 0
+	elif Input.is_action_pressed("ui_down"):
+		current_dir = "down"
+		play_anim(1)
+		velocity.x = 0
+		velocity.y = SPEED
+	elif Input.is_action_pressed("ui_up"):
+		current_dir = "up"
+		play_anim(1)
+		velocity.x = 0
+		velocity.y = - SPEED
+	else:
+		play_anim(0)
+		velocity.x = 0 
+		velocity.y = 0
+		
+	move_and_slide()
 
-	# Check for input (ASWD keys)
-	if Input.is_action_pressed("ui_left"):  # A key
-		input_velocity.x -= 1
-	if Input.is_action_pressed("ui_right"):  # D key
-		input_velocity.x += 1
-	if Input.is_action_pressed("ui_up"):  # W key
-		input_velocity.y -= 1
-	if Input.is_action_pressed("ui_down"):  # S key
-		input_velocity.y += 1
-
-	# Normalize input velocity to prevent faster diagonal movement
-	if input_velocity.length() > 0:
-		input_velocity = input_velocity.normalized() * speed
-
-	# Update the velocity property
-	velocity = input_velocity
-
-	# Move the player using move_and_slide()
-	move_and_slide()  # No arguments needed in Godot 4
+func play_anim(movement):
+	var dir = current_dir
+	var anim = $AnimatedSprite2D
+	
+	if dir == "right":
+		anim.flip_h = false
+		if movement == 1:
+			anim.play("walk_side")
+		elif movement == 0:
+			anim.play("idle")
+	
+	if dir == "left":
+		anim.flip_h = true
+		if movement == 1:
+			anim.play("walk_side")
+		elif movement == 0:
+			anim.play("idle")
+	
+	if dir == "up":
+		anim.flip_h = false
+		if movement == 1:
+			anim.play("walk_back")
+		elif movement == 0:
+			anim.play("idle")
+		
+	if dir == "down":
+		anim.flip_h = false
+		if movement == 1:
+			anim.play("walk_front")
+		elif movement == 0:
+			anim.play("idle")
