@@ -1,4 +1,4 @@
-[gd_scene load_steps=71 format=4 uid="uid://bhnvfig8rs04g"]
+[gd_scene load_steps=73 format=4 uid="uid://bhnvfig8rs04g"]
 
 [ext_resource type="Texture2D" uid="uid://3pbqpcpffpyb" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass.png" id="1_4qq7b"]
 [ext_resource type="Texture2D" uid="uid://dw8hjd457s4r0" path="res://Assets/kenney_sports-pack/Tilesheet/groundBeige_blue.png" id="2_75hpu"]
@@ -8,7 +8,7 @@
 [ext_resource type="Texture2D" uid="uid://ccbdo8t46rja5" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass_mown.png" id="6_symy8"]
 [ext_resource type="Texture2D" uid="uid://cxg03wlueqrri" path="res://Assets/kenney_sports-pack/Tilesheet/groundIce_red.png" id="7_75hpu"]
 [ext_resource type="Texture2D" uid="uid://cgj5gbv0wd38y" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (1) Sheet.png" id="8_bi1hd"]
-[ext_resource type="Script" uid="uid://bry32xyvtdlsd" path="res://Scenes/a_1.gd" id="9_bhngk"]
+[ext_resource type="Script" uid="uid://bry32xyvtdlsd" path="res://Scripts/a_1.gd" id="9_bhngk"]
 [ext_resource type="Texture2D" uid="uid://j6a0bkvgo35d" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (8) Sheet.png" id="9_ehoth"]
 [ext_resource type="Texture2D" uid="uid://bih8qeul4cxc7" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (2) Sheet.png" id="10_nkvct"]
 [ext_resource type="Texture2D" uid="uid://c7xd6v3cybegm" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (10) Sheet.png" id="10_vyly5"]
@@ -16,6 +16,8 @@
 [ext_resource type="Texture2D" uid="uid://c7tci0npcglcc" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Soccer Audience Booing (7) Sheet.png" id="12_bhngk"]
 [ext_resource type="Texture2D" uid="uid://cm3h7vmf87whq" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Soccer Audience Cheering (2) Sheet.png" id="13_65wvw"]
 [ext_resource type="Texture2D" uid="uid://dbouas1nmh2ot" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Soccer Audience Cheering (10) Sheet.png" id="14_l3bdc"]
+[ext_resource type="AudioStream" uid="uid://4fmemvejiqy0" path="res://Assets/audio/Ludum Dare 30 04.ogg" id="17_65wvw"]
+[ext_resource type="Script" uid="uid://bxy1j6n32528h" path="res://Scripts/audio_stream_player.gd" id="18_l3bdc"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_hptm8"]
 texture = ExtResource("1_4qq7b")
@@ -17980,3 +17982,8 @@ script = ExtResource("9_bhngk")
 position = Vector2(188, -40)
 sprite_frames = SubResource("SpriteFrames_qsrhp")
 frame_progress = 0.23039429
+
+[node name="AudioStreamPlayer" type="AudioStreamPlayer" parent="."]
+stream = ExtResource("17_65wvw")
+autoplay = true
+script = ExtResource("18_l3bdc")

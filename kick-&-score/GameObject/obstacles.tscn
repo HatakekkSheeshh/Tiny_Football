@@ -2,7 +2,7 @@
 
 [ext_resource type="Texture2D" uid="uid://ke01mo068dqt" path="res://Assets/Free Football Assets/Obstacles/FrancePlayer/idle.png" id="1_ndyk5"]
 [ext_resource type="Texture2D" uid="uid://s3kgh1eba0xx" path="res://Assets/Free Football Assets/Obstacles/FrancePlayer/walk.png" id="2_beihw"]
-[ext_resource type="Script" uid="uid://bwp88fn1fccqf" path="res://GameObject/obstacles.gd" id="3_beihw"]
+[ext_resource type="Script" uid="uid://bwp88fn1fccqf" path="res://Scripts/obstacles.gd" id="3_beihw"]
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_p8wab"]
 atlas = ExtResource("1_ndyk5")
