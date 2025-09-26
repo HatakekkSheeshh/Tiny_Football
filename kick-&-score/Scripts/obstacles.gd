@@ -3,6 +3,9 @@ extends CharacterBody2D
 # Movement speed of the player
 @export var speed: float = 200.0
 
+func _ready() -> void:
+	pass
+
 func _physics_process(_delta: float) -> void:
 	# Reset velocity
 	var input_velocity = Vector2.ZERO
