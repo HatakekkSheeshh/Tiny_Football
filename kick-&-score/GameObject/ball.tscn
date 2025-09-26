@@ -35,10 +35,11 @@ animations = [{
 [node name="CharacterBody2D" type="CharacterBody2D" parent="."]
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
+position = Vector2(-2, 0)
 shape = SubResource("CircleShape2D_6q6ci")
 
 [node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-0.34355164, -0.005944252)
+position = Vector2(-2, -4.656613e-10)
 scale = Vector2(-1.0729387, 0.99933946)
 sprite_frames = SubResource("SpriteFrames_glfvn")
 animation = &"Rolling"
