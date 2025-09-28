@@ -2,45 +2,22 @@
 
 [ext_resource type="Texture2D" uid="uid://c4q7wupnkkpea" path="res://Assets/kenney_sports-pack/PNG/Equipment/ball_soccer2.png" id="1_jv6vo"]
 
+[sub_resource type="PhysicsMaterial" id="PhysicsMaterial_jv6vo"]
+friction = 0.2
+bounce = 0.8
+
 [sub_resource type="CircleShape2D" id="CircleShape2D_6q6ci"]
 
-[sub_resource type="SpriteFrames" id="SpriteFrames_glfvn"]
-animations = [{
-"frames": [{
-"duration": 1.0,
-"texture": ExtResource("1_jv6vo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_jv6vo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_jv6vo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_jv6vo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_jv6vo")
-}, {
-"duration": 1.0,
-"texture": ExtResource("1_jv6vo")
-}],
-"loop": true,
-"name": &"Rolling",
-"speed": 5.0
-}]
-
 [node name="Ball" type="Node2D"]
+scale = Vector2(0.75, 0.75)
 
-[node name="CharacterBody2D" type="CharacterBody2D" parent="."]
+[node name="RigidBody2D" type="RigidBody2D" parent="."]
+mass = 0.001
+physics_material_override = SubResource("PhysicsMaterial_jv6vo")
+gravity_scale = 0.0
 
-[node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-position = Vector2(-2, 0)
+[node name="Sprite2D" type="Sprite2D" parent="RigidBody2D"]
+texture = ExtResource("1_jv6vo")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="RigidBody2D"]
 shape = SubResource("CircleShape2D_6q6ci")
-
-[node name="AnimatedSprite2D" type="AnimatedSprite2D" parent="CharacterBody2D"]
-position = Vector2(-2, -4.656613e-10)
-scale = Vector2(-1.0729387, 0.99933946)
-sprite_frames = SubResource("SpriteFrames_glfvn")
-animation = &"Rolling"
-frame_progress = 0.0033377637

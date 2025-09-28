@@ -7,8 +7,7 @@
 [ext_resource type="Texture2D" uid="uid://bwm3hprh6wp2k" path="res://Assets/Free Football Assets/Footballers/Argentina/walk.png" id="4_tcgth"]
 
 [sub_resource type="CapsuleShape2D" id="CapsuleShape2D_6iuh6"]
-radius = 6.0
-height = 14.0
+height = 24.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8trj2"]
 atlas = ExtResource("1_6wbdd")
@@ -149,7 +148,7 @@ animations = [{
 script = ExtResource("1_6iuh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(0, 4)
+position = Vector2(0, 5)
 shape = SubResource("CapsuleShape2D_6iuh6")
 debug_color = Color(0.6554663, 0.4702894, 0.58376086, 0.41960785)
 
