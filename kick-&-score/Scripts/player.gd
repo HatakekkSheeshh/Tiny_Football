@@ -1,105 +1,118 @@
 extends CharacterBody2D
 
-# Const variables
+""" Const variables """ 
+# Speed 
 const SPEED = 100.0
-const GAIN := 1.0            # rate: ball ≈ GAIN * player_velocity
-const MAX_BALL_SPEED := 1000 # max velocity for the ball (px/s)
+const GAIN := 1.0            			# rate: ball ≈ GAIN * player_velocity
+const MAX_BALL_SPEED := 500  			# max velocity for the ball (px/s)
+const SPRINT_MULT := 1.8
+# Stamina
+const MAX_STAMINA := 100.0
+const STAMINA_DRAIN := 30.0            	# decrease/th.s when sprinting
+const STAMINA_RECOVER_MOVE := 5.0     	# recover/th.s when walking
+const STAMINA_RECOVER_IDLE := 25.0     	# recover/th.s when idling
+const STAMINA_MIN_TO_SPRINT := 10.0   
+
+
+var stamina: float = 0.0
+@onready var bar: ProgressBar = $ProgressBar
 
 var current_dir = "none"
 var pushing_ball = false
 var ball: RigidBody2D = null  
 
+# State
+var movement = false
+var sprint = true	
 
 func _ready() -> void:
+	print("Initialize Player object")
+	
+	# Initialize stamina
+	stamina = MAX_STAMINA
+	bar.min_value = 0
+	bar.max_value = MAX_STAMINA
+	bar.value = stamina
+
 	$AnimatedSprite2D.play("idle")
 
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
-	check_collision()  
 
 func player_movement(delta: float) -> void:
+	var accelerate := SPEED
+	if Input.is_action_pressed("ui_key_e") and stamina >= STAMINA_MIN_TO_SPRINT:
+		sprint = true
+		accelerate *= SPRINT_MULT 
+	else:
+		sprint = false
+
 	if Input.is_action_pressed("ui_right"):
 		current_dir = "right"
-		play_anim(1)
-		velocity.x = SPEED
+		movement = true
+		velocity.x = accelerate
 		velocity.y = 0
 	elif Input.is_action_pressed("ui_left"):
 		current_dir = "left"
-		play_anim(1)
-		velocity.x = -SPEED
+		movement = true
+		velocity.x = -accelerate
 		velocity.y = 0
 	elif Input.is_action_pressed("ui_down"):
 		current_dir = "down"
-		play_anim(1)
+		movement = true
 		velocity.x = 0
-		velocity.y = SPEED
+		velocity.y = accelerate
 	elif Input.is_action_pressed("ui_up"):
 		current_dir = "up"
-		play_anim(1)
+		movement = true
 		velocity.x = 0
-		velocity.y = -SPEED
+		velocity.y = -accelerate
 	else:
-		play_anim(0)
+		movement = false
 		velocity = Vector2.ZERO
 
 	move_and_slide()
+	stamina_bar(delta)
+	play_anim()
 
-func play_anim(movement: int) -> void:
+func play_anim() -> void:
 	var dir = current_dir
 	var anim = $AnimatedSprite2D
 	
 	if dir == "right":
 		anim.flip_h = false
-		if movement == 1:
+		if movement:
 			anim.play("walk_side")
-		elif movement == 0:
+		elif not movement:
 			anim.play("idle")
 	
 	if dir == "left":
 		anim.flip_h = true
-		if movement == 1:
+		if movement:
 			anim.play("walk_side")
-		elif movement == 0:
+		elif not movement:
 			anim.play("idle")
 	
 	if dir == "up":
 		anim.flip_h = false
-		if movement == 1:
+		if movement:
 			anim.play("walk_back")
-		elif movement == 0:
+		elif not movement:
 			anim.play("idle")
 		
 	if dir == "down":
 		anim.flip_h = false
-		if movement == 1:
+		if movement:
 			anim.play("walk_front")
-		elif movement == 0:
+		elif not movement:
 			anim.play("idle")
 
-func push_ball() -> void:
-	if ball and velocity.length() > 0.01:
-		var v_unit = velocity.normalized()
-		var v_magnitude = velocity.length()
-		var v_target = min(v_magnitude * GAIN, MAX_BALL_SPEED)
-		var v_along = ball.linear_velocity.dot(v_unit)
-		var dv = v_target - v_along
-		if dv > 0.0: 
-			var j = ball.mass * dv
-			ball.apply_central_impulse(v_unit * j)
+func stamina_bar(delta: float) -> void:
+	if sprint:
+		stamina -= STAMINA_DRAIN * delta
+	else:
+		stamina += (STAMINA_RECOVER_MOVE if movement else STAMINA_RECOVER_IDLE) * delta
 
-func check_collision() -> void:
-	pushing_ball = false
-	ball = null
-
-	if velocity.length() <= 0.01:
-		return
-
-	for i in range(get_slide_collision_count()):
-		var collision = get_slide_collision(i)
-		if collision == null:
-			continue
-		var collider = collision.get_collider()
-		if collider is RigidBody2D:
-			ball = collider
-			pushing_ball = true
-			push_ball() 
+	stamina = clamp(stamina, 0.0, MAX_STAMINA)  # chỉ cần 1 lần
+	bar.value = stamina
+	

@@ -97,9 +97,8 @@ animations = [{
 "speed": 15.0
 }]
 
-[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_ndyk5"]
-radius = 6.0
-height = 18.0
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_beihw"]
+size = Vector2(9, 4)
 
 [node name="Obstacles" type="Node2D"]
 scale = Vector2(2, 2)
@@ -113,5 +112,6 @@ frame_progress = 0.4145422
 script = ExtResource("3_beihw")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="CharacterBody2D"]
-shape = SubResource("CapsuleShape2D_ndyk5")
+position = Vector2(0, 8)
+shape = SubResource("RectangleShape2D_beihw")
 disabled = true
