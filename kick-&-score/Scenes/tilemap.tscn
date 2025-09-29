@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://bhnvfig8rs04g"]
+[gd_scene load_steps=76 format=4 uid="uid://bhnvfig8rs04g"]
 
 [ext_resource type="Texture2D" uid="uid://3pbqpcpffpyb" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass.png" id="1_4qq7b"]
 [ext_resource type="Texture2D" uid="uid://dw8hjd457s4r0" path="res://Assets/kenney_sports-pack/Tilesheet/groundBeige_blue.png" id="2_75hpu"]
@@ -19,8 +19,7 @@
 [ext_resource type="Texture2D" uid="uid://dbouas1nmh2ot" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Soccer Audience Cheering (10) Sheet.png" id="14_l3bdc"]
 [ext_resource type="AudioStream" uid="uid://4fmemvejiqy0" path="res://Assets/audio/Ludum Dare 30 04.ogg" id="17_65wvw"]
 [ext_resource type="Script" uid="uid://bxy1j6n32528h" path="res://Scripts/audio_stream_player.gd" id="18_l3bdc"]
-[ext_resource type="PackedScene" uid="uid://cwlu27850s3j5" path="res://GameObject/Ball.tscn" id="19_qqp52"]
-[ext_resource type="Script" uid="uid://blsje3ytf5037" path="res://Scripts/ball.gd" id="20_f8k6d"]
+[ext_resource type="PackedScene" uid="uid://cwlu27850s3j5" path="res://GameObject/ball.tscn" id="19_qqp52"]
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_qqp52"]
 
@@ -18132,9 +18131,8 @@ offset = Vector2(-10, 0)
 anchor_mode = 0
 zoom = Vector2(0.45, 0.425)
 
-[node name="Ball" parent="." instance=ExtResource("19_qqp52")]
-position = Vector2(639, 411)
-script = ExtResource("20_f8k6d")
+[node name="ball" parent="." instance=ExtResource("19_qqp52")]
+position = Vector2(637, 415)
 
 [node name="player" parent="." instance=ExtResource("8_qqp52")]
 position = Vector2(605, 405)

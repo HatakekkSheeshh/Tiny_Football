@@ -1,6 +1,10 @@
 extends RigidBody2D
+var ball:RigidBody2D =null
+var pushing_ball:bool =false
 
-"""
+func _ready()->void:
+	ball=get_node("Ball")
+
 func push_ball() -> void:
 	if ball and velocity.length() > 0.01:
 		var v_unit = velocity.normalized()
@@ -28,4 +32,3 @@ func check_collision() -> void:
 			ball = collider
 			pushing_ball = true
 			push_ball() 
-"""
