@@ -7,8 +7,8 @@
 [ext_resource type="Texture2D" uid="uid://bwm3hprh6wp2k" path="res://Assets/Free Football Assets/Footballers/Argentina/walk.png" id="4_tcgth"]
 [ext_resource type="Script" uid="uid://bsbmrml6o45dv" path="res://GameObject/kick_zone.gd" id="6_7tsdg"]
 
-[sub_resource type="RectangleShape2D" id="RectangleShape2D_6iuh6"]
-size = Vector2(14, 5.000001)
+[sub_resource type="CapsuleShape2D" id="CapsuleShape2D_p2i75"]
+height = 22.0
 
 [sub_resource type="AtlasTexture" id="AtlasTexture_8trj2"]
 atlas = ExtResource("1_6wbdd")
@@ -170,12 +170,15 @@ corner_radius_bottom_left = 10
 radius = 7.071068
 
 [node name="player" type="CharacterBody2D"]
+collision_layer = 2
+safe_margin = 0.1
 script = ExtResource("1_6iuh6")
 
 [node name="CollisionShape2D" type="CollisionShape2D" parent="."]
-position = Vector2(2.3841858e-07, 11.500002)
+y_sort_enabled = true
+position = Vector2(0, 5)
 rotation = 3.1415925
-shape = SubResource("RectangleShape2D_6iuh6")
+shape = SubResource("CapsuleShape2D_p2i75")
 one_way_collision = true
 debug_color = Color(0.6554663, 0.4702894, 0.58376086, 0.41960785)
 

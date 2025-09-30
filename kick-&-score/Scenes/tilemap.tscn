@@ -1,4 +1,4 @@
-[gd_scene load_steps=77 format=4 uid="uid://bhnvfig8rs04g"]
+[gd_scene load_steps=80 format=4 uid="uid://bhnvfig8rs04g"]
 
 [ext_resource type="Texture2D" uid="uid://3pbqpcpffpyb" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass.png" id="1_4qq7b"]
 [ext_resource type="Texture2D" uid="uid://dw8hjd457s4r0" path="res://Assets/kenney_sports-pack/Tilesheet/groundBeige_blue.png" id="2_75hpu"]
@@ -7,10 +7,12 @@
 [ext_resource type="Texture2D" uid="uid://c3q8tmskkdykf" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Environment/Soccorpia Stadium Tiles.png" id="5_fctyr"]
 [ext_resource type="Texture2D" uid="uid://ccbdo8t46rja5" path="res://Assets/kenney_sports-pack/Tilesheet/groundGrass_mown.png" id="6_symy8"]
 [ext_resource type="Texture2D" uid="uid://cxg03wlueqrri" path="res://Assets/kenney_sports-pack/Tilesheet/groundIce_red.png" id="7_75hpu"]
+[ext_resource type="Script" uid="uid://bbnlba88tgdqj" path="res://Scenes/goal_1.gd" id="8_3a6fx"]
 [ext_resource type="Texture2D" uid="uid://cgj5gbv0wd38y" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (1) Sheet.png" id="8_bi1hd"]
 [ext_resource type="PackedScene" uid="uid://6eiaw7m0ntao" path="res://GameObject/Player1.tscn" id="8_qqp52"]
 [ext_resource type="Script" uid="uid://bry32xyvtdlsd" path="res://Scripts/a_1.gd" id="9_bhngk"]
 [ext_resource type="Texture2D" uid="uid://j6a0bkvgo35d" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (8) Sheet.png" id="9_ehoth"]
+[ext_resource type="Script" uid="uid://dy3vxgmtp6jo6" path="res://Scenes/goal_2.gd" id="9_gk80j"]
 [ext_resource type="Texture2D" uid="uid://bih8qeul4cxc7" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (2) Sheet.png" id="10_nkvct"]
 [ext_resource type="Texture2D" uid="uid://c7xd6v3cybegm" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Competitor Audience Booing (10) Sheet.png" id="10_vyly5"]
 [ext_resource type="Texture2D" uid="uid://oubpkuj5ej63" path="res://Assets/Soccorpia Asset Pack/Soccorpia Asset Pack/Audience Sheets/Soccer Audience Booing (4) Sheet.png" id="11_vyly5"]
@@ -17527,6 +17529,9 @@ sources/4 = SubResource("TileSetAtlasSource_jkdf5")
 sources/5 = SubResource("TileSetAtlasSource_6bp64")
 sources/6 = SubResource("TileSetAtlasSource_bi1hd")
 
+[sub_resource type="RectangleShape2D" id="RectangleShape2D_f8k6d"]
+size = Vector2(27, 132)
+
 [sub_resource type="AtlasTexture" id="AtlasTexture_boyy8"]
 atlas = ExtResource("8_bi1hd")
 region = Rect2(0, 0, 100, 51)
@@ -18034,6 +18039,21 @@ use_parent_material = true
 position = Vector2(8, -4)
 tile_map_data = PackedByteArray("AAD5/woAAwAXABAAAAD6/woAAwAXABAAAAD4/woAAwARABQAAAD4/wkAAwARABUAAAD4/wgAAwARABQAAAD4/wcAAwARABQAAAD4/wYAAwARABQAAAD4/wUAAwARABQAAAD4/wQAAwARAA4AAAD5/wMAAwASAA0AAAD4/wMAAwARAA0AAAD6/wMAAwATAA0AAAD5/wQAAwAXABAAAAD6/wQAAwAXABAAAAD6/wUAAwAXABAAAAD6/wYAAwAXABAAAAD6/wcAAwAXABAAAAD6/wgAAwAXABAAAAD6/wkAAwAXABAAAAD5/wkAAwAXABAAAAD5/wgAAwAXABAAAAD5/wcAAwAXABAAAAD5/wYAAwAXABAAAAD5/wUAAwAXABAAAAD6/wsAAwAXABAAAAD5/wsAAwAXABAAAAD4/wsAAwARABQAAAD5/wwAAwASABYAAAD6/wwAAwASABYAAAD4/wwAAwARABYAAAAbAAMAAwAgAA0AAAAaAAMAAwAgAA0AAAAcAAQAAwAiAA4AAAAcAAUAAwAiAA8AAAAcAAYAAwAiAA8AAAAcAAcAAwAiAA8AAAAcAAgAAwAiAA8AAAAcAAkAAwAiAA8AAAAcAAoAAwAiAA8AAAAcAAsAAwAiABUAAAAcAAMAAwAiAA0AAAAaAAQAAwAeAA8AAAAaAAUAAwAeAA8AAAAaAAYAAwAeAA8AAAAaAAcAAwAeAA8AAAAbAAQAAwAeAA8AAAAbAAUAAwAeAA8AAAAbAAYAAwAeAA8AAAAbAAcAAwAeAA8AAAAbAAgAAwAeAA8AAAAbAAkAAwAeAA8AAAAbAAoAAwAeAA8AAAAbAAsAAwAeAA8AAAAaAAsAAwAeAA8AAAAaAAoAAwAeAA8AAAAaAAkAAwAeAA8AAAAaAAgAAwAeAA8AAAAaAAwAAwAgABYAAAAbAAwAAwAhABYAAAAcAAwAAwAiABYAAAA=")
 tile_set = SubResource("TileSet_wsu2k")
+
+[node name="Goal1" type="Area2D" parent="TileMap/Goals"]
+script = ExtResource("8_3a6fx")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Goals/Goal1"]
+position = Vector2(-101.5, 128)
+shape = SubResource("RectangleShape2D_f8k6d")
+
+[node name="Goal2" type="Area2D" parent="TileMap/Goals"]
+position = Vector2(538, 0)
+script = ExtResource("9_gk80j")
+
+[node name="CollisionShape2D" type="CollisionShape2D" parent="TileMap/Goals/Goal2"]
+position = Vector2(-101.5, 128)
+shape = SubResource("RectangleShape2D_f8k6d")
 
 [node name="Stadium" type="TileMapLayer" parent="TileMap"]
 use_parent_material = true

@@ -4,15 +4,17 @@
 
 [sub_resource type="PhysicsMaterial" id="PhysicsMaterial_e50c6"]
 friction = 0.2
-bounce = 0.6
+bounce = 0.8
 
 [sub_resource type="CircleShape2D" id="CircleShape2D_j5uem"]
 radius = 7.0
 
-[node name="ball" type="RigidBody2D"]
-mass = 0.001
+[node name="ball" type="RigidBody2D" groups=["ball"]]
+y_sort_enabled = true
+mass = 10.0
 physics_material_override = SubResource("PhysicsMaterial_e50c6")
 gravity_scale = 0.0
+can_sleep = false
 
 [node name="Sprite2D" type="Sprite2D" parent="."]
 scale = Vector2(0.75, 0.75)

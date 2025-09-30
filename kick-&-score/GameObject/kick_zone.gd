@@ -25,7 +25,6 @@ func _on_ball_exit(body):
 	if body.name == "ball":
 		is_in_contact_with_ball=false
 		ball_body=null
-		print("No longer has the ball")
 
 func _process(delta):
 	if is_in_contact_with_ball:
@@ -41,4 +40,3 @@ func _kick_ball():
 	if ball_body:
 		var dir=(ball_body.global_position -global_position).normalized()
 		ball_body.apply_impulse(Vector2.ZERO, dir*kick_force)
-		print("Kicked the ball")

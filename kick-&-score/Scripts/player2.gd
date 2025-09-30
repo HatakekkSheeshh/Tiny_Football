@@ -3,7 +3,7 @@ extends CharacterBody2D
 """ Const variables """ 
 # Speed 
 const SPEED = 100.0
-const GAIN := 1.0            			# rate: ball ≈ GAIN * player_velocity
+const GAIN := 0.75            			# rate: ball ≈ GAIN * player_velocity
 const MAX_BALL_SPEED := 500  			# max velocity for the ball (px/s)
 const SPRINT_MULT := 1.8
 # Stamina
@@ -35,10 +35,10 @@ func _ready() -> void:
 	bar.value = stamina
 
 	$AnimatedSprite2D.play("idle")
-
+	$CollisionShape2D.disabled = false
 func _physics_process(delta: float) -> void:
 	player_movement(delta)
-
+	handle_ball_interaction()
 func player_movement(delta: float) -> void:
 	var accelerate := SPEED
 	if Input.is_action_pressed("ui_sprint_2") and stamina >= STAMINA_MIN_TO_SPRINT:
@@ -74,6 +74,39 @@ func player_movement(delta: float) -> void:
 	move_and_slide()
 	stamina_bar(delta)
 	play_anim()
+
+func handle_ball_interaction() -> void:
+	# Check for ball collision
+	for i in get_slide_collision_count():
+		var collision = get_slide_collision(i)
+		var collider = collision.get_collider()
+		
+		if collider is RigidBody2D and collider.is_in_group("ball"):
+			ball = collider
+			pushing_ball = true
+			
+			# Calculate kick force based on player's velocity and direction
+			var kick_force = velocity.normalized() * (SPEED * GAIN)
+			if sprint:
+				kick_force *= SPRINT_MULT
+				
+			# Apply force to the ball
+			var ball_velocity = ball.linear_velocity + kick_force
+			
+			# Limit ball speed
+			if ball_velocity.length() > MAX_BALL_SPEED:
+				ball_velocity = ball_velocity.normalized() * MAX_BALL_SPEED
+				
+			ball.linear_velocity = ball_velocity
+			
+			# Optional: Add a small impulse in the direction of movement for more responsive feel
+			ball.apply_impulse(velocity.normalized() * GAIN * 10)
+	
+	# Reset pushing_ball if we're not colliding with the ball anymore
+	if pushing_ball and get_slide_collision_count() == 0:
+		pushing_ball = false
+		ball = null
+
 
 func play_anim() -> void:
 	var dir = current_dir
