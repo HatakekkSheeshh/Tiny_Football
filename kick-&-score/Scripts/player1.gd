@@ -41,28 +41,28 @@ func _physics_process(delta: float) -> void:
 
 func player_movement(delta: float) -> void:
 	var accelerate := SPEED
-	if Input.is_action_pressed("ui_key_e") and stamina >= STAMINA_MIN_TO_SPRINT:
+	if Input.is_action_pressed("ui_sprint_1") and stamina >= STAMINA_MIN_TO_SPRINT:
 		sprint = true
 		accelerate *= SPRINT_MULT 
 	else:
 		sprint = false
 
-	if Input.is_action_pressed("ui_right"):
+	if Input.is_action_pressed("ui_right_1"):
 		current_dir = "right"
 		movement = true
 		velocity.x = accelerate
 		velocity.y = 0
-	elif Input.is_action_pressed("ui_left"):
+	elif Input.is_action_pressed("ui_left_1"):
 		current_dir = "left"
 		movement = true
 		velocity.x = -accelerate
 		velocity.y = 0
-	elif Input.is_action_pressed("ui_down"):
+	elif Input.is_action_pressed("ui_down_1"):
 		current_dir = "down"
 		movement = true
 		velocity.x = 0
 		velocity.y = accelerate
-	elif Input.is_action_pressed("ui_up"):
+	elif Input.is_action_pressed("ui_up_1"):
 		current_dir = "up"
 		movement = true
 		velocity.x = 0
